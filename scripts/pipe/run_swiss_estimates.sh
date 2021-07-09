@@ -3,9 +3,10 @@
 # NOTE: in this showcase script, there is no management of error messages
 # nor logging of messages from the code execution
 
-# TODO: change to the coorect dir (folder that contains the ./scripts and ./data)
+# TODO: change to the correct dir (folder that contains the ./scripts and ./data)
 pipeline_dir="/Users/scirej/Documents/nCov19/Incidence_analysis/Git_repo/pipeline_FOPH"
 cd $pipeline_dir
+
 
 # Load the data from the latest file
 # in the folder specified in 'load_latest_data.R'
