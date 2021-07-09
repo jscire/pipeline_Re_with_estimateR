@@ -18,7 +18,7 @@ By default, results are stored in `data/results/aggregated`.
 
 ## Tip
 The time required to execute all steps can be drastically reduced by parallelizing the Re calculation steps in
-that script.
+`run_swiss_estimates.sh`.
 Each step in the for-loop in `run_swiss_estimates.sh` corresponds to the Re estimation on a particular region.
 Different computing nodes can work in parallel on different regions to execute the code faster,
 instead of doing them all in succession on a single computing node.
