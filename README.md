@@ -10,7 +10,7 @@ It relies on the `estimateR` package for computations.
 
 ## Use
 The file `scripts/pipe/run_swiss_estimates.sh` runs the entire pipeline.
-It assumes that the latest linelist data of interest is in the `data/raw/BAG` folder.
+It assumes that the latest linelist data of interest is in a folder named `./data/raw/BAG`.
 The folder paths can be modified easily in the various R scripts (usually at the very top of the script),
 and in the `run_swiss_estimates.sh` script.
 
