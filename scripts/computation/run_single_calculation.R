@@ -46,7 +46,7 @@ if(interactive()) {
   }
 }
 
-dir.create(path_dir(opt$out), showWarnings = FALSE)
+dir.create(path_dir(opt$out), recursive = TRUE, showWarnings = FALSE)
 
 incidence_data <- try(read_csv(opt$incidence_data,
                                col_types = list(
