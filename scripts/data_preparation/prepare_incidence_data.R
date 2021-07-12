@@ -79,13 +79,13 @@ swiss_incidence <- incidence_data %>%
 # Build incidence of greater regions by aggregating the incidence of corresponding cantons
 greater_regions <- tribble(
   ~greater_region,  ~region,
-  "gr_LGR",         c("VD", "VS", "GE"),
-  "gr_EM",          c("BE", "FR", "SO", "NE", "JU"),
-  "gr_NCH",         c("BS", "BL", "AG"),
-  "gr_ZH",          c("ZH"),
-  "gr_ECH",         c("GL", "SH", "AR", "AI", "SG", "GR", "TG"),
-  "gr_CCH",         c("LU", "UR", "SZ", "OW", "NW", "ZG"),
-  "gr_TI",          c("TI"),
+  "gr-LGR",         c("VD", "VS", "GE"),
+  "gr-EM",          c("BE", "FR", "SO", "NE", "JU"),
+  "gr-NCH",         c("BS", "BL", "AG"),
+  "gr-ZH",          c("ZH"),
+  "gr-ECH",         c("GL", "SH", "AR", "AI", "SG", "GR", "TG"),
+  "gr-CCH",         c("LU", "UR", "SZ", "OW", "NW", "ZG"),
+  "gr-TI",          c("TI"),
 ) %>% unnest(cols = c(region))
 
 greater_regions_incidence <- incidence_data %>%
