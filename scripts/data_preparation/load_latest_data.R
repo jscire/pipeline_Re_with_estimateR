@@ -28,6 +28,29 @@ newest_file <- bag_files[which(bag_files_dates == maximum_file_date)[1]]
 cat("reading file", newest_file, "...\n")
 linelist <- readr::read_delim(
   newest_file,
+  col_types = cols(
+      .default = col_double(),
+      eingang_dt = col_date(format = ""),
+      fall_dt = col_date(format = ""),
+      ktn = col_character(),
+      sex = col_character(),
+      manifestation_dt = col_date(format = ""),
+      hospdatin = col_date(format = ""),
+      pttoddat = col_date(format = ""),
+      grunderkr_adipos = col_logical(),
+      em_hospit_icu_in_dt = col_date(format = ""),
+      em_hospit_icu_out_dt = col_date(format = ""),
+      exp_land = col_character(),
+      exp_von = col_date(format = ""),
+      exp_bis = col_date(format = ""),
+      exp_dt = col_date(format = ""),
+      exp_ausland_von = col_date(format = ""),
+      exp_ausland_bis = col_date(format = ""),
+      lab_grund_txt = col_character(),
+      form_version = col_character(),
+      variant_of_concern = col_character(),
+      typ = col_character()
+    ),
   delim = ";")
 
 max_date <- lubridate::date(maximum_file_date)
