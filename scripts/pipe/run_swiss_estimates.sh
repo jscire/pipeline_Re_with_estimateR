@@ -29,9 +29,25 @@ calc_script="./scripts/computation/run_single_calculation.R"
 
 # This for loop can be parallelized:
 # Iterations are indenpendent from one another
-for file in ${incidence_dir}/*; do
+# for file in ${incidence_dir}/*; do
+#     if [ -f "$file" ]; then
+#         echo "$file"
+#         filename=$(basename $file)
+#         region=${filename%_*}
+
+#         echo "Running calculation on ${region}"
+
+#         Rscript ${calc_script} \
+#         --config ${config_file} \
+#         --incidence_data "${incidence_dir}/${region}_incidence.csv" \
+#         --out "${temp_result_dir}/${region}_Re.csv"
+#     fi
+# done
+
+# parallel version
+
+estimateRegion (){
     if [ -f "$file" ]; then
-        echo "$file"
         filename=$(basename $file)
         region=${filename%_*}
 
@@ -42,7 +58,17 @@ for file in ${incidence_dir}/*; do
         --incidence_data "${incidence_dir}/${region}_incidence.csv" \
         --out "${temp_result_dir}/${region}_Re.csv"
     fi
-done
+}
+
+# set number of processes to use
+N=8
+# start processes
+(
+    for file in ${incidence_dir}/*; do 
+    ((i=i%N)); ((i++==0)) && wait
+    estimateRegion "$file" & 
+    done
+)
 
 # Aggregate the results into a single file.
 Rscript ./scripts/output_processing/aggregate_results.R
