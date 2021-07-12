@@ -108,9 +108,9 @@ names(regional_incidences) <- incidence_data %>%
   dplyr::group_keys(region) %>%
   dplyr::pull(region)
 
-lapply(names(regional_incidences), function(x){
+invisible(lapply(names(regional_incidences), function(x){
   readr::write_csv(regional_incidences[[x]], file = file.path(incidence_data_dir, paste0(x, "_incidence.csv")))
-})
+}))
 
 
 
